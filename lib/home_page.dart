@@ -111,14 +111,14 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-      /*     Padding(
+    Padding(
             padding: const EdgeInsets.only(top: 100),
             child: Text(
               "Made by Dani.",
               textDirection: TextDirection.ltr,
               style:customFontMadeBy ,
             ),
-          ), */
+          ),
         ],
       ),
     );
