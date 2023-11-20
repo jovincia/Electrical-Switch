@@ -1,3 +1,4 @@
+import 'package:container/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,38 +12,56 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isColoredIcon = false;
   bool isColoredBG = false;
-  // bool isSwitchedBS = false;
-
-  Color isSwitchedBS = Colors.grey[400]!;
+  bool isColoredShadow = false;
+  Color isSwitchedBS =  Colors.grey[400]!;
 
   void changeColors(Color color) {
     setState(() {
       isColoredIcon = !isColoredIcon;
+      isColoredShadow = !isColoredShadow;
       isColoredBG = !isColoredBG;
-      isSwitchedBS = color;
     });
   }
 
+
   void changeBoxShadowColor(Color color) {
     setState(() {
-      isSwitchedBS = color;
+      if (isSwitchedBS == color) {
+        isSwitchedBS = Colors.grey[400]!;
+        isColoredShadow = false;
+      } else {
+        isSwitchedBS = color;
+        isColoredShadow = true;
+      }
     });
   }
+
+  var customFontMadeBy = GoogleFonts.alegreya(
+    textStyle: TextStyle(
+      color: MainColors.black,
+      fontSize: 23,
+      decoration: TextDecoration.combine(
+        [
+          TextDecoration.none,
+        ],
+      ),
+      fontWeight: FontWeight.w300,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor: MainColors.grey,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 150, right: 150, top: 50),
         child: FloatingActionButton(
-          onPressed: () => changeColors(Colors.grey[400]!),
-          backgroundColor: isColoredBG ? Colors.white : Colors.black ,
+          onPressed: () => changeColors(MainColors.grey!),
+          backgroundColor: isColoredBG ? MainColors.white : MainColors.black,
           child: Icon(Icons.power_settings_new_rounded,
               size: 40, color: isSwitchedBS),
         ),
       ),
-
       body: Column(
         children: [
           Center(
@@ -52,18 +71,17 @@ class _HomePageState extends State<HomePage> {
                 height: 200,
                 width: 200,
                 decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: MainColors.secondGrey,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
                         color: isSwitchedBS,
-                        //color: isColoredIcon ? Colors.deepOrange : Colors.grey[400]!,
                         offset: const Offset(10.0, 10.0),
                         spreadRadius: 2.0,
                         blurRadius: 15,
                       ),
                       BoxShadow(
-                        color: isColoredIcon ? Colors.white : Colors.grey[400]!,
+                        color: isColoredIcon ? MainColors.white : MainColors.grey!,
                         offset: const Offset(-10.0, -10.0),
                         spreadRadius: 2.0,
                         blurRadius: 15,
@@ -78,32 +96,31 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
-                  elevation: 20.0,
-                  onPressed: () => changeBoxShadowColor(Colors.deepOrange),
-                  backgroundColor: Colors.deepOrange[400],
+                  onPressed: () =>
+                      changeBoxShadowColor(MainColors.orange!),
+                  backgroundColor: MainColors.orange,
                 ),
                 FloatingActionButton(
-                  onPressed: () => changeBoxShadowColor(Colors.teal[400]!),
-                  backgroundColor: Colors.teal[400],
+                  onPressed: () => changeBoxShadowColor(MainColors.teal!),
+                  backgroundColor: MainColors.teal,
                 ),
                 FloatingActionButton(
-                  onPressed: () => changeBoxShadowColor(Colors.pink[400]!),
-                  backgroundColor: Colors.pink[400],
+                  onPressed: () => changeBoxShadowColor(MainColors.pink!),
+                  backgroundColor: MainColors.pink,
                 )
               ],
             ),
-          )
+          ),
+      /*     Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Text(
+              "Made by Dani.",
+              textDirection: TextDirection.ltr,
+              style:customFontMadeBy ,
+            ),
+          ), */
         ],
       ),
-      /* child: Text("Made by Dani.",
-      textDirection: TextDirection.ltr,
-      style: TextStyle(
-        fontFamily: GoogleFonts.happyMonkey(),
-        color: Colors.deepOrange,
-        fontSize: 23,
-        decorationStyle: TextDecorationStyle.wavy,
-        fontWeight: FontWeight.w600,
-      ),),*/
     );
   }
 }
@@ -118,6 +135,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
