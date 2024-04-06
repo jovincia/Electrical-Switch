@@ -96,6 +96,19 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
+                  onPressed: () => changeBoxShadowColor(MainColors.brown),
+                  backgroundColor: MainColors.brown,
+                ),
+                FloatingActionButton(
+                  onPressed: () => changeBoxShadowColor(MainColors.brownNude),
+                  backgroundColor: MainColors.brownNude,
+                ),
+                FloatingActionButton(
+                  onPressed: () =>
+                      changeBoxShadowColor(MainColors.brownCoffeeMilk),
+                  backgroundColor: MainColors.brownCoffeeMilk,
+                ),
+                FloatingActionButton(
                   onPressed: () => changeBoxShadowColor(MainColors.orange!),
                   backgroundColor: MainColors.orange,
                 ),
@@ -106,18 +119,6 @@ class _HomePageState extends State<HomePage> {
                 FloatingActionButton(
                   onPressed: () => changeBoxShadowColor(MainColors.pink!),
                   backgroundColor: MainColors.pink,
-                ),
-                FloatingActionButton(
-                  onPressed: () => changeBoxShadowColor(MainColors.brown),
-                  backgroundColor: MainColors.brown,
-                ),
-                FloatingActionButton(
-                  onPressed: () => changeBoxShadowColor(MainColors.brownNude),
-                  backgroundColor: MainColors.brownNude,
-                ),
-                FloatingActionButton(
-                  onPressed: () => changeBoxShadowColor(MainColors.brownCoffeeMilk),
-                  backgroundColor: MainColors.brownCoffeeMilk,
                 ),
               ],
             ),
