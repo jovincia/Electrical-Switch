@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: MainColors.grey,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left: 150, right: 150, bottom: 100),
+        padding: const EdgeInsets.only(left: 150, right: 150, bottom: 200),
         child: FloatingActionButton(
           onPressed: () => changeColors(MainColors.grey!),
           backgroundColor: isColoredBG ? MainColors.white : MainColors.black,
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 150, right: 230),
+            padding: const EdgeInsets.only(top: 310, right: 250),
             child: Text(
               "Made by Dani.",
               textDirection: TextDirection.ltr,
@@ -137,16 +137,4 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
-  }
-}
