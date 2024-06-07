@@ -35,15 +35,10 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  var customFontMadeBy = GoogleFonts.alegreya(
+  var customFontMadeBy = GoogleFonts.calligraffitti(
     textStyle: TextStyle(
       color: MainColors.black,
-      fontSize: 23,
-      decoration: TextDecoration.combine(
-        [
-          TextDecoration.none,
-        ],
-      ),
+      fontSize: 25,
       fontWeight: FontWeight.w300,
     ),
   );
@@ -53,7 +48,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: MainColors.grey,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left: 150, right: 150, bottom: 200),
+        padding: const EdgeInsets.only(left: 150, right: 150, bottom: 100),
         child: FloatingActionButton(
           onPressed: () => changeColors(MainColors.grey!),
           backgroundColor: isColoredBG ? MainColors.white : MainColors.black,
@@ -124,10 +119,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 310, right: 250),
+            padding: const EdgeInsets.only(top: 150, right: 200),
             child: Text(
               "Made by Dani.",
-              textDirection: TextDirection.ltr,
+              //textDirection: TextDirection.ltr,
               style: customFontMadeBy,
             ),
           ),
@@ -136,5 +131,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
