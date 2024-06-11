@@ -122,7 +122,6 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 150, right: 200),
             child: Text(
               "Made by Dani.",
-              //textDirection: TextDirection.ltr,
               style: customFontMadeBy,
             ),
           ),
